@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<title>Schatten der Finsternis | T-Films Offiziell</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+    --bg:#030303;
+    --card:#0d0d0f;
+    --card2:#151518;
+    --text:#f5f5f5;
+    --muted:#999;
+    --line:rgba(255,255,255,.09);
+    --purple:#8d5cff;
+    --purple2:#5e2ed6;
+    --gold:#d9b45a;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background:
+    radial-gradient(circle at 80% 10%,rgba(111,54,200,.13),transparent 30%),
+    radial-gradient(circle at 10% 70%,rgba(100,30,150,.08),transparent 30%),
+    var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+}
+a{
+    text-decoration:none;
+    color:inherit;
+}
+button,input{
+    font:inherit;
+}
+button{
+    cursor:pointer;
+}
+/* NAV */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:76px;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(3,3,3,.8);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+.logo{
+    font-family:Cinzel,serif;
+    font-weight:800;
+    letter-spacing:2px;
+}
+.logo span{
+    color:var(--purple);
+}
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+.nav-links a{
+    color:#aaa;
+    font-size:13px;
+}
+.nav-links a:hover{
+    color:white;
+}
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.points-pill{
+    border:1px solid rgba(141,92,255,.4);
+    background:rgba(141,92,255,.08);
+    padding:9px 13px;
+    border-radius:999px;
+    font-size:12px;
+}
+.profile-btn{
+    border:1px solid var(--line);
+    background:#111;
+    color:white;
+    border-radius:999px;
+    padding:9px 14px;
+}
+/* HERO */
+.hero{
+    min-height:90vh;
+    padding:150px 7% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg,#030303 0%,rgba(3,3,3,.85) 45%,rgba(3,3,3,.3) 100%);
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+}
+.eyebrow{
+    color:#b798ff;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+.hero h1{
+    font-family:Cinzel,serif;
+    font-size:clamp(50px,8vw,95px);
+    line-height:.95;
+}
+.hero h1 span{
+    display:block;
+    font-size:.4em;
+    color:#aaa;
+    letter-spacing:6px;
+    margin-top:20px;
+}
+.hero p{
+    margin-top:25px;
+    color:#aaa;
+    max-width:620px;
+    line-height:1.8;
+}
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+.btn{
+    padding:14px 20px;
+    border-radius:9px;
+    border:1px solid var(--line);
+    font-weight:700;
+}
+.primary{
+    background:white;
+    color:black;
+}
+.secondary{
+    background:rgba(255,255,255,.05);
+}
+/* SECTIONS */
+section{
+    padding:90px 7%;
+}
+.section-title{
+    font-family:Cinzel,serif;
+    font-size:34px;
+    margin-bottom:8px;
+}
+.section-subtitle{
+    color:#888;
+    margin-bottom:35px;
+}
+/* FILMS */
+.film-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+}
+.film-card{
+    border:1px solid var(--line);
+    border-radius:17px;
+    overflow:hidden;
+    background:var(--card);
+    transition:.3s;
+}
+.film-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(141,92,255,.4);
+}
+.poster{
+    height:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle,rgba(130,60,210,.35),transparent 55%),
+    linear-gradient(145deg,#18101e,#050505);
+}
+.poster small{
+    display:block;
+    color:#aaa;
+    letter-spacing:3px;
+}
+.poster strong{
+    display:block;
+    font-family:Cinzel,serif;
+    font-size:23px;
+    margin-top:8px;
+}
+.film-info{
+    padding:22px;
+}
+.film-info h3{
+    font-size:17px;
+}
+.film-info p{
+    color:#888;
+    font-size:13px;
+    line-height:1.6;
+    margin:10px 0;
+}
+.meta{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin:14px 0;
+}
+.meta span{
+    border:1px solid var(--line);
+    padding:5px 8px;
+    border-radius:5px;
+    color:#aaa;
+    font-size:10px;
+}
+.watch{
+    color:#b99aff;
+    font-size:13px;
+    font-weight:700;
+}
+/* COUNTDOWN */
+.countdown-box{
+    margin-top:45px;
+    padding:32px;
+    border-radius:18px;
+    text-align:center;
+    border:1px solid rgba(141,92,255,.3);
+    background:rgba(141,92,255,.05);
+}
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:22px;
+    flex-wrap:wrap;
+}
+.time{
+    min-width:80px;
+    padding:15px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    border-radius:10px;
+}
+.time strong{
+    font-size:27px;
+    display:block;
+}
+.time span{
+    color:#777;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+/* TIMELINE */
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
+.release{
+    margin-bottom:20px;
+    padding:24px;
+    border-radius:15px;
+    background:var(--card);
+    border:1px solid var(--line);
+}
+.release-date{
+    color:#b798ff;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.release h3{
+    font-family:Cinzel,serif;
+    margin:8px 0;
+}
+.release p{
+    color:#888;
+    font-size:13px;
+}
+/* POINTS */
+.points-dashboard{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:22px;
+}
+.points-card{
+    padding:28px;
+    border-radius:18px;
+    background:var(--card);
+    border:1px solid var(--line);
+}
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.avatar{
+    width:58px;
+    height:58px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#7b4cff,#24103e);
+    font-weight:800;
+}
+.points-number{
+    font-size:48px;
+    font-weight:800;
+    margin-top:25px;
+}
+.points-label{
+    color:var(--gold);
+    font-size:12px;
+}
+.progress{
+    height:8px;
+    background:#222;
+    border-radius:10px;
+    margin-top:20px;
+    overflow:hidden;
+}
+.progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,var(--purple2),#c69aff);
+    width:0;
+    transition:.5s;
+}
+.rank{
+    margin-top:10px;
+    color:#b798ff;
+    font-weight:700;
+}
+.reward{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:14px;
+    border-radius:10px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    margin-top:10px;
+}
+.reward small{
+    color:#777;
+}
+.reward button{
+    background:rgba(141,92,255,.1);
+    color:#c6abff;
+    border:1px solid rgba(141,92,255,.35);
+    border-radius:6px;
+    padding:7px 10px;
+}
+.reward button:disabled{
+    opacity:.3;
+    cursor:not-allowed;
+}
+/* ACHIEVEMENTS */
+.achievements{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:14px;
+}
+.achievement{
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+}
+.achievement-icon{
+    font-size:28px;
+    margin-bottom:10px;
+}
+.achievement p{
+    color:#777;
+    font-size:12px;
+    margin-top:5px;
+}
+/* CONTACT */
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    padding:45px 25px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:
+    radial-gradient(circle at center,rgba(141,92,255,.1),transparent 65%),
+    var(--card);
+}
+.social-button{
+    display:inline-flex;
+    margin-top:22px;
+    padding:13px 20px;
+    border-radius:9px;
+    background:#111;
+    border:1px solid var(--line);
+    font-weight:700;
+}
+.contact-note{
+    color:#888;
+    line-height:1.7;
+    font-size:13px;
+    margin-top:20px;
+}
+/* LORE */
+.lore-box{
+    max-width:900px;
+    padding:30px;
+    border-radius:18px;
+    background:var(--card);
+    border:1px solid var(--line);
+}
+.lore-box p{
+    color:#999;
+    line-height:1.8;
+}
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(10px);
+    padding:20px;
+}
+.modal.active{
+    display:flex;
+}
+.modal-box{
+    width:100%;
+    max-width:430px;
+    background:#0b0b0d;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:30px;
+    position:relative;
+}
+.modal-box h2{
+    font-family:Cinzel,serif;
+    margin-bottom:20px;
+}
+.close{
+    position:absolute;
+    right:18px;
+    top:15px;
+    background:none;
+    border:none;
+    color:#888;
+    font-size:23px;
+}
+.form-group{
+    margin-bottom:13px;
+}
+.form-group label{
+    display:block;
+    color:#888;
+    font-size:12px;
+    margin-bottom:6px;
+}
+.form-group input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:#151518;
+    color:white;
+    outline:none;
+}
+.form-button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:white;
+    color:black;
+    font-weight:800;
+    margin-top:5px;
+}
+.switch{
+    text-align:center;
+    margin-top:16px;
+    color:#777;
+    font-size:12px;
+}
+.switch button{
+    background:none;
+    border:none;
+    color:#b798ff;
+}
+/* TOAST */
+.toast{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    z-index:5000;
+    background:#151518;
+    border:1px solid rgba(141,92,255,.4);
+    padding:15px 20px;
+    border-radius:10px;
+    transform:translateY(120px);
+    opacity:0;
+    transition:.3s;
+}
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+/* FOOTER */
+footer{
+    padding:45px 7%;
+    border-top:1px solid var(--line);
+    text-align:center;
+    color:#666;
+    font-size:12px;
+}
+/* MOBILE */
+@media(max-width:800px){
+    .navbar{
+        padding:0 4%;
+    }
+    .nav-links{
+        display:none;
+    }
+    .hero{
+        padding-left:6%;
+        padding-right:6%;
+    }
+    section{
+        padding:70px 6%;
+    }
+    .points-dashboard{
+        grid-template-columns:1fr;
+    }
+    .points-pill{
+        display:none;
+    }
+    .hero h1{
+        font-size:50px;
+    }
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+<a href="#" class="logo">
+    T-FILMS <span>●</span>
+</a>
+<nav>
+    <ul class="nav-links">
+        <li><a href="#filme">Filme</a></li>
+        <li><a href="#kommend">Kommend</a></li>
+        <li><a href="#punkte">T-Points</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+<div class="nav-right">
+    <div class="points-pill">
+        ✦ <span id="navPoints">0</span> T-Points
+    </div>
+    <button class="profile-btn" onclick="openAuth()">
+        👤 <span id="accountButton">Anmelden</span>
+    </button>
+</div>
+</header>
+<section class="hero">
+<div class="hero-content">
+    <div class="eyebrow">
+        Ein T-Films Original
+    </div>
+    <h1>
+        SCHATTEN
+        <span>DER FINSTERNIS</span>
+    </h1>
+    <p>
+        Die offizielle digitale Welt von
+        <strong>Schatten der Finsternis</strong>.
+        Entdecke alle Filme, Spin-Offs, kommenden
+        Projekte und sammle T-Points.
+    </p>
+    <div class="hero-buttons">
+        <a class="btn primary" href="#filme">
+            🎬 Filme entdecken
+        </a>
+        <a class="btn secondary" href="#punkte">
+            ✦ T-Points
+        </a>
+    </div>
+</div>
+</section>
+<section id="filme">
+<div class="eyebrow">Archiv</div>
+<h2 class="section-title">
+    Filme & Spin-Offs
+</h2>
+<p class="section-subtitle">
+    Alle bisher veröffentlichten Geschichten.
+</p>
+<div class="film-grid">
+    <article class="film-card">
+        <div class="poster">
+            <div>
+                <small>AKT 01</small>
+                <strong>DER SCHATTEN<br>DER FINSTERNIS</strong>
+            </div>
+        </div>
+        <div class="film-info">
+            <h3>Der Schatten der Finsternis — Akt 1</h3>
+            <p>
+                Das erste Kapitel der Schatten-Saga.
+            </p>
+            <div class="meta">
+                <span>HAUPTFILM</span>
+                <span>AKT 1</span>
+            </div>
+            <a class="watch"
+               href="https://youtu.be/OBRT1zp2_l0"
+               target="_blank"
+               onclick="videoClick()">
+                ▶ Auf YouTube ansehen
+            </a>
+        </div>
+    </article>
+    <article class="film-card">
+        <div class="poster">
+            <div>
+                <small>SPIN-OFF</small>
+                <strong>GRIMBLE</strong>
+            </div>
+        </div>
+        <div class="film-info">
+            <h3>Grimble Spin-Off</h3>
+            <p>
+                Ein weiteres Abenteuer aus dem Universum.
+            </p>
+            <div class="meta">
+                <span>SPIN-OFF</span>
+                <span>GRIMBLE</span>
+            </div>
+            <a class="watch"
+               href="https://youtu.be/DtumaEjjW-Y"
+               target="_blank"
+               onclick="videoClick()">
+                ▶ Auf YouTube ansehen
+            </a>
+        </div>
+    </article>
+    <article class="film-card">
+        <div class="poster">
+            <div>
+                <small>AKT 02</small>
+                <strong>DER SCHATTEN<br>DER FINSTERNIS</strong>
+            </div>
+        </div>
+        <div class="film-info">
+            <h3>Der Schatten der Finsternis — Akt 2</h3>
+            <p>
+                Die Geschichte geht weiter.
+            </p>
+            <div class="meta">
+                <span>HAUPTFILM</span>
+                <span>AKT 2</span>
+            </div>
+            <a class="watch"
+               href="https://youtu.be/LXTMh_PZltA"
+               target="_blank"
+               onclick="videoClick()">
+                ▶ Auf YouTube ansehen
+            </a>
+        </div>
+    </article>
+    <article class="film-card">
+        <div class="poster">
+            <div>
+                <small>SPIN-OFF</small>
+                <strong>BUNNY</strong>
+            </div>
+        </div>
+        <div class="film-info">
+            <h3>Bunny Spin-Off</h3>
+            <p>
+                Eine weitere Geschichte aus der Welt der Finsternis.
+            </p>
+            <div class="meta">
+                <span>SPIN-OFF</span>
+                <span>BUNNY</span>
+            </div>
+            <a class="watch"
+               href="https://youtu.be/W2dcn2Z5eqc"
+               target="_blank"
+               onclick="videoClick()">
+                ▶ Auf YouTube ansehen
+            </a>
+        </div>
+    </article>
+    <article class="film-card">
+        <div class="poster">
+            <div>
+                <small>AKT 03</small>
+                <strong>DER SCHATTEN<br>DER FINSTERNIS</strong>
+            </div>
+        </div>
+        <div class="film-info">
+            <h3>Der Schatten der Finsternis — Akt 3</h3>
+            <p>
+                Das dritte Kapitel der Hauptsaga.
+            </p>
+            <div class="meta">
+                <span>HAUPTFILM</span>
+                <span>AKT 3</span>
+            </div>
+            <a class="watch"
+               href="https://youtu.be/EY1TP89z0tI"
+               target="_blank"
+               onclick="videoClick()">
+                ▶ Auf YouTube ansehen
+            </a>
+        </div>
+    </article>
+</div>
+</section>
+<section id="kommend">
+<div class="eyebrow">Die Zukunft</div>
+<h2 class="section-title">
+    Kommende Filme
+</h2>
+<p class="section-subtitle">
+    Die nächsten Kapitel des Universums.
+</p>
+<div class="timeline">
+    <div class="release">
+        <div class="release-date">
+            31. Oktober 2026 · 18:00 Uhr
+        </div>
+        <h3>
+            Der Preis eines Wunsches
+        </h3>
+        <p>
+            Das nächste große Schatten-Special.
+        </p>
+    </div>
+    <div class="release">
+        <div class="release-date">
+            April 2027
+        </div>
+        <h3>
+            Der Schatten der Finsternis — Akt 4
+        </h3>
+        <p>
+            Das nächste Kapitel der Hauptsaga.
+        </p>
+    </div>
+    <div class="release">
+        <div class="release-date">
+            September 2027
+        </div>
+        <h3>
+            Shadow — Spin-Off
+        </h3>
+        <p>
+            Eine neue Geschichte rund um Shadow.
+        </p>
+    </div>
+    <div class="release">
+        <div class="release-date">
+            November 2027
+        </div>
+        <h3>
+            Der Schatten der Finsternis — Akt 5
+        </h3>
+        <p>
+            Das fünfte Kapitel.
+        </p>
+    </div>
+    <div class="release">
+        <div class="release-date">
+            Noch unbekannt
+        </div>
+        <h3>
+            Weiter Projekte?……
+        </h3>
+        <p>
+            Die Finsternis ist noch lange nicht vorbei.
+        </p>
+    </div>
+</div>
+<div class="countdown-box">
+    <h3>
+        🌑 Der Preis eines Wunsches
+    </h3>
+    <p style="color:#777;margin-top:7px;">
+        31. Oktober 2026 · 18:00 Uhr
+    </p>
+    <div class="countdown">
+        <div class="time">
+            <strong id="days">0</strong>
+            <span>Tage</span>
+        </div>
+        <div class="time">
+            <strong id="hours">0</strong>
+            <span>Stunden</span>
+        </div>
+        <div class="time">
+            <strong id="minutes">0</strong>
+            <span>Minuten</span>
+        </div>
+        <div class="time">
+            <strong id="seconds">0</strong>
+            <span>Sekunden</span>
+        </div>
+    </div>
+</div>
+</section>
+<section id="punkte">
+<div class="eyebrow">
+    Community
+</div>
+<h2 class="section-title">
+    T-Points
+</h2>
+<p class="section-subtitle">
+    Sammle Punkte und schalte exklusive Belohnungen frei.
+</p>
+<div class="points-dashboard">
+    <div class="points-card">
+        <div class="profile">
+            <div class="avatar">
+                TF
+            </div>
+            <div>
+                <h3 id="profileName">
+                    Gast
+                </h3>
+                <p style="color:#777;font-size:12px;">
+                    Schatten-Profil
+                </p>
+            </div>
+        </div>
+        <div class="points-number">
+            <span id="points">0</span>
+        </div>
+        <div class="points-label">
+            ✦ T-POINTS
+        </div>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="rank">
+            Rang: <span id="rank">Gast</span>
+        </div>
+        <p style="color:#666;font-size:12px;margin-top:20px;">
+            Registrierung: +500 T-Points
+            <br>
+            2 Stunden Website-Zeit: +200 T-Points
+            <br>
+            Video-Klicks: maximal 10 pro Tag
+        </p>
+    </div>
+    <div class="points-card">
+        <h3>
+            🎁 Belohnungen
+        </h3>
+        <div class="reward">
+            <div>
+                <strong>Digitales Wallpaper</strong>
+                <br>
+                <small>1.000 T-Points</small>
+            </div>
+            <button onclick="redeem(1000,'Digitales Wallpaper')">
+                Einlösen
+            </button>
+        </div>
+        <div class="reward">
+            <div>
+                <strong>Autogrammkarte</strong>
+                <br>
+                <small>2.500 T-Points</small>
+            </div>
+            <button onclick="redeem(2500,'Autogrammkarte')">
+                Einlösen
+            </button>
+        </div>
+        <div class="reward">
+            <div>
+                <strong>Exklusives Poster</strong>
+                <br>
+                <small>10.000 T-Points</small>
+            </div>
+            <button onclick="redeem(10000,'Exklusives Poster')">
+                Einlösen
+            </button>
+        </div>
+        <div class="reward">
+            <div>
+                <strong>Behind-the-Scenes</strong>
+                <br>
+                <small>25.000 T-Points</small>
+            </div>
+            <button onclick="redeem(25000,'Behind-the-Scenes')">
+                Einlösen
+            </button>
+        </div>
+        <div class="reward">
+            <div>
+                <strong>👑 Early Access</strong>
+                <br>
+                <small>50.000 T-Points</small>
+            </div>
+            <button onclick="redeem(50000,'7 Tage Early Access')">
+                Einlösen
+            </button>
+        </div>
+    </div>
+</div>
+</section>
+<section>
+<div class="eyebrow">
+    Erfolge
+</div>
+<h2 class="section-title">
+    Achievements
+</h2>
+<p class="section-subtitle">
+    Sammle T-Points und werde Teil der Schatten-Geschichte.
+</p>
+<div class="achievements">
+    <div class="achievement">
+        <div class="achievement-icon">🌑</div>
+        <h4>Schatten-Neuling</h4>
+        <p>Erstelle deinen Account.</p>
+    </div>
+    <div class="achievement">
+        <div class="achievement-icon">🎬</div>
+        <h4>Filmfan</h4>
+        <p>Klicke auf ein veröffentlichtes Video.</p>
+    </div>
+    <div class="achievement">
+        <div class="achievement-icon">🔥</div>
+        <h4>Schattenjäger</h4>
+        <p>Erreiche 5.000 T-Points.</p>
+    </div>
+    <div class="achievement">
+        <div class="achievement-icon">👁️</div>
+        <h4>Hüter der Finsternis</h4>
+        <p>Erreiche 25.000 T-Points.</p>
+    </div>
+    <div class="achievement">
+        <div class="achievement-icon">👑</div>
+        <h4>Wächter der Finsternis</h4>
+        <p>Erreiche 50.000 T-Points.</p>
+    </div>
+</div>
+</section>
+<section id="kontakt">
+<div class="contact-box">
+    <div class="eyebrow">
+        Kontakt
+    </div>
+    <h2 class="section-title">
+        Du hast eine Belohnung eingelöst?
+    </h2>
+    <p class="contact-note">
+        Schicke einen Screenshot deiner eingelösten
+        Belohnung an T-Films. Am besten erreichst du
+        uns über TikTok.
+        <br><br>
+        Bitte sende deinen Screenshot zusammen mit
+        deinem T-Films-Namen.
+    </p>
+    <a class="social-button"
+       href="https://www.tiktok.com/@tfilms2025"
+       target="_blank">
+        🎵 T-Films auf TikTok
+    </a>
+</div>
+</section>
+<section>
+<div class="eyebrow">
+    Das Universum
+</div>
+<h2 class="section-title">
+    Die Lore
+</h2>
+<p class="section-subtitle">
+    Die Welt hinter den Filmen.
+</p>
+<div class="lore-box">
+    <p>
+        <strong>Schatten der Finsternis</strong> ist das
+        zentrale Film-Universum von T-Films.
+        Die Geschichte wird in mehreren Akten erzählt
+        und durch verschiedene Spin-Offs erweitert.
+    </p>
+    <br>
+    <p>
+        Mit jedem neuen Kapitel entstehen neue
+        Geheimnisse, Charaktere und Geschichten.
+    </p>
+</div>
+</section>
+<footer>
+<strong>T-Films Offiziell</strong>
+<br><br>
+Schatten der Finsternis · Offizielle Website
+<br><br>
+© 2026 T-Films Entertainment
+</footer>
+<!-- AUTH MODAL -->
+<div class="modal" id="authModal">
+<div class="modal-box">
+    <button class="close" onclick="closeAuth()">
+        ×
+    </button>
+    <h2 id="authTitle">
+        Anmelden
+    </h2>
+    <div id="registerFields" style="display:none;">
+        <div class="form-group">
+            <label>
+                Benutzername
+            </label>
+            <input
+                id="username"
+                type="text"
+                placeholder="Dein T-Films Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>
+            E-Mail
+        </label>
+        <input
+            id="email"
+            type="email"
+            placeholder="deine@email.de">
+    </div>
+    <div class="form-group">
+        <label>
+            Passwort
+        </label>
+        <input
+            id="password"
+            type="password"
+            placeholder="Passwort">
+    </div>
+    <button class="form-button" onclick="submitAuth()">
+        <span id="authButtonText">
+            Anmelden
+        </span>
+    </button>
+    <div class="switch">
+        <span id="switchText">
+            Noch keinen Account?
+        </span>
+        <button onclick="toggleAuth()">
+            <span id="switchButton">
+                Registrieren
+            </span>
+        </button>
+    </div>
+</div>
+</div>
+<div class="toast" id="toast">
+    Nachricht
+</div>
+<script>
+/* =========================================
+   ACCOUNT SYSTEM
+========================================= */
+let account =
+    JSON.parse(localStorage.getItem("tfilmsAccount")) || null;
+let authMode = "login";
+function openAuth(){
+    if(account){
+        const logout =
+            confirm(
+                "Du bist als " +
+                account.username +
+                " angemeldet.\n\nMöchtest du dich abmelden?"
+            );
+        if(logout){
+            account = null;
+            localStorage.removeItem("tfilmsAccount");
+            updateUI();
+            showToast("Du wurdest abgemeldet.");
+        }
+        return;
+    }
+    document
+        .getElementById("authModal")
+        .classList.add("active");
+}
+function closeAuth(){
+    document
+        .getElementById("authModal")
+        .classList.remove("active");
+}
+function toggleAuth(){
+    authMode =
+        authMode === "login"
+        ? "register"
+        : "login";
+    document.getElementById("authTitle").textContent =
+        authMode === "register"
+        ? "Account erstellen"
+        : "Anmelden";
+    document.getElementById("authButtonText").textContent =
+        authMode === "register"
+        ? "Registrieren"
+        : "Anmelden";
+    document.getElementById("switchText").textContent =
+        authMode === "register"
+        ? "Bereits einen Account?"
+        : "Noch keinen Account?";
+    document.getElementById("switchButton").textContent =
+        authMode === "register"
+        ? "Anmelden"
+        : "Registrieren";
+    document.getElementById("registerFields").style.display =
+        authMode === "register"
+        ? "block"
+        : "none";
+}
+function submitAuth(){
+    const email =
+        document.getElementById("email").value.trim();
+    const password =
+        document.getElementById("password").value;
+    const username =
+        document.getElementById("username").value.trim();
+    if(!email || !password){
+        showToast("Bitte alle Felder ausfüllen.");
+        return;
+    }
+    if(authMode === "register"){
+        if(!username){
+            showToast("Bitte einen Benutzernamen wählen.");
+            return;
+        }
+        if(localStorage.getItem("tfilmsAccount")){
+            showToast(
+                "Auf diesem Gerät existiert bereits ein Account."
+            );
+            return;
+        }
+        account = {
+            username: username,
+            email: email,
+            points: 500,
+            registeredAt: Date.now(),
+            watchTime: 0,
+            twoHourReward: false,
+            videoClicks: 0,
+            clickDate: getToday()
+        };
+        localStorage.setItem(
+            "tfilmsAccount",
+            JSON.stringify(account)
+        );
+        closeAuth();
+        showToast(
+            "🎁 Willkommen! +500 T-Points!"
+        );
+        updateUI();
+        startTimer();
+        return;
+    }
+    if(authMode === "login"){
+        const saved =
+            JSON.parse(
+                localStorage.getItem("tfilmsAccount")
+            );
+        if(
+            saved &&
+            saved.email === email
+        ){
+            account = saved;
+            closeAuth();
+            updateUI();
+            startTimer();
+            showToast(
+                "Willkommen zurück, " +
+                account.username + "!"
+            );
+        } else {
+            showToast(
+                "Account auf diesem Gerät nicht gefunden."
+            );
+        }
+    }
+}
+/* =========================================
+   POINTS
+========================================= */
+function updateUI(){
+    if(!account){
+        document.getElementById("points").textContent = "0";
+        document.getElementById("navPoints").textContent = "0";
+        document.getElementById("profileName").textContent = "Gast";
+        document.getElementById("rank").textContent = "Gast";
+        document.getElementById("accountButton").textContent = "Anmelden";
+        return;
+    }
+    document.getElementById("points").textContent =
+        account.points.toLocaleString("de-DE");
+    document.getElementById("navPoints").textContent =
+        account.points.toLocaleString("de-DE");
+    document.getElementById("profileName").textContent =
+        account.username;
+    document.getElementById("accountButton").textContent =
+        account.username;
+    let rank = "🌑 Schatten-Neuling";
+    let progress = 0;
+    if(account.points >= 50000){
+        rank = "👑 Wächter der Finsternis";
+        progress = 100;
+    } else if(account.points >= 25000){
+        rank = "👁️ Hüter der Finsternis";
+        progress =
+            (account.points / 50000) * 100;
+    } else if(account.points >= 15000){
+        rank = "🔥 Schattenkrieger";
+        progress =
+            (account.points / 25000) * 100;
+    } else if(account.points >= 5000){
+        rank = "🗡️ Schattenjäger";
+        progress =
+            (account.points / 15000) * 100;
+    } else {
+        progress =
+            (account.points / 5000) * 100;
+    }
+    document.getElementById("rank").textContent =
+        rank;
+    document.getElementById("progressBar").style.width =
+        Math.min(progress,100) + "%";
+    localStorage.setItem(
+        "tfilmsAccount",
+        JSON.stringify(account)
+    );
+}
+/* =========================================
+   VIDEO CLICK LIMIT
+========================================= */
+function getToday(){
+    const date = new Date();
+    return date.getFullYear() +
+        "-" +
+        String(date.getMonth()+1).padStart(2,"0") +
+        "-" +
+        String(date.getDate()).padStart(2,"0");
+}
+function videoClick(){
+    if(!account){
+        showToast(
+            "👤 Melde dich an, um T-Points zu sammeln."
+        );
+        return;
+    }
+    const today = getToday();
+    if(account.clickDate !== today){
+        account.clickDate = today;
+        account.videoClicks = 0;
+    }
+    if(account.videoClicks >= 10){
+        showToast(
+            "⚠️ Tageslimit erreicht: 10/10 Video-Klicks."
+        );
+        return;
+    }
+    account.videoClicks++;
+    account.points += 100;
+    updateUI();
+    showToast(
+        "✦ +100 T-Points · " +
+        account.videoClicks +
+        "/10 heute"
+    );
+}
+/* =========================================
+   TWO HOUR REWARD
+========================================= */
+let timerInterval = null;
+function startTimer(){
+    if(!account) return;
+    if(account.twoHourReward) return;
+    if(timerInterval)
+        clearInterval(timerInterval);
+    timerInterval =
+        setInterval(() => {
+            if(!account) return;
+            account.watchTime += 1;
+            if(account.watchTime >= 7200){
+                account.twoHourReward = true;
+                account.points += 200;
+                clearInterval(timerInterval);
+                updateUI();
+                showToast(
+                    "⏱️ 2 Stunden erreicht! +200 T-Points!"
+                );
+                return;
+            }
+            localStorage.setItem(
+                "tfilmsAccount",
+                JSON.stringify(account)
+            );
+        },1000);
+}
+/* =========================================
+   REWARDS
+========================================= */
+function redeem(cost,reward){
+    if(!account){
+        showToast(
+            "Bitte zuerst anmelden."
+        );
+        return;
+    }
+    if(account.points < cost){
+        showToast(
+            "❌ Du hast nicht genug T-Points."
+        );
+        return;
+    }
+    account.points -= cost;
+    updateUI();
+    showToast(
+        "🎁 " +
+        reward +
+        " erfolgreich eingelöst!"
+    );
+    setTimeout(() => {
+        alert(
+            "Belohnung eingelöst!\n\n" +
+            "Bitte mache einen Screenshot dieser Meldung " +
+            "und sende ihn an T-Films über TikTok:\n\n" +
+            "@tfilms2025"
+        );
+    },500);
+}
+/* =========================================
+   COUNTDOWN
+========================================= */
+const releaseDate =
+    new Date(
+        "October 31, 2026 18:00:00"
+    ).getTime();
+function updateCountdown(){
+    const now =
+        Date.now();
+    const distance =
+        releaseDate - now;
+    if(distance <= 0){
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+        return;
+    }
+    const days =
+        Math.floor(
+            distance /
+            (1000*60*60*24)
+        );
+    const hours =
+        Math.floor(
+            (distance %
+            (1000*60*60*24)) /
+            (1000*60*60)
+        );
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000*60*60)) /
+            (1000*60)
+        );
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000*60)) /
+            1000
+        );
+    document.getElementById("days").textContent =
+        days;
+    document.getElementById("hours").textContent =
+        hours;
+    document.getElementById("minutes").textContent =
+        minutes;
+    document.getElementById("seconds").textContent =
+        seconds;
+}
+setInterval(updateCountdown,1000);
+/* =========================================
+   TOAST
+========================================= */
+function showToast(message){
+    const toast =
+        document.getElementById("toast");
+    toast.textContent =
+        message;
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    },3000);
+}
+/* =========================================
+   START
+========================================= */
+updateUI();
+if(account){
+    startTimer();
+}
+updateCountdown();
+</script>
+</body>
+</html>
